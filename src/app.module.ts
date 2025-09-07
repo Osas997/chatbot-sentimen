@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { RagModule } from './rag/rag.module';
+import { RagModule } from './modules/rag/rag.module';
 
 @Module({
   imports: [

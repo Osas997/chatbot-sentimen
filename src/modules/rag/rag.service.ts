@@ -101,6 +101,7 @@ export class RagService implements OnModuleInit {
       const jsonPath = path.join(
         process.cwd(),
         'src',
+        'common',
         'data',
         'json',
         'dataset_umkm.json',
