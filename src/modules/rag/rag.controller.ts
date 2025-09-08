@@ -1,4 +1,11 @@
-import { Controller, Post, Body, HttpStatus, HttpCode } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpStatus,
+  HttpCode,
+  Get,
+} from '@nestjs/common';
 import { RagService, RagQueryResponse } from './rag.service';
 import { CreateQueryDto } from './dtos/create-query.dto';
 import { QueryResponseDto } from './dtos/query-response.dto';
@@ -17,6 +24,15 @@ export class RagController {
     return {
       answer: result.answer,
       sources: result.sources,
+    };
+  }
+
+  @Get('insights')
+  @HttpCode(HttpStatus.OK)
+  async insights(): Promise<any> {
+    const insights = await this.ragService.getInsights();
+    return {
+      insights,
     };
   }
 }
