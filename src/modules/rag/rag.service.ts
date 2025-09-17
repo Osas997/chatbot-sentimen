@@ -51,7 +51,8 @@ export class RagService implements OnModuleInit {
       // Initialize LLM
       this.llm = new ChatGoogleGenerativeAI({
         apiKey,
-        model: 'gemini-1.5-flash',
+        model:
+          this.configService.get<string>('GEMINI_MODEL') || 'gemini-1.5-flash',
         temperature: 0.7,
       });
 
